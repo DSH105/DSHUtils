@@ -36,7 +36,7 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-    
+
     <repositories>
         <repository>
             <id>bukkit-repo</id>
