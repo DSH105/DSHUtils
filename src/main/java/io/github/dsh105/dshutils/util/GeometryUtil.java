@@ -1,6 +1,7 @@
 package io.github.dsh105.dshutils.util;
 
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.entity.Entity;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class GeometryUtil {
         return GeneralUtil.r().nextBoolean() ? f : -f;
     }
 
-    public static List<Location> circle(Location loc, int r, int h, boolean hollow, boolean sphere) {
+    public static List<Location> circle(Location loc, int r, int h, boolean hollow, boolean sphere, boolean includeAir) {
         List<Location> blocks = new ArrayList<Location>();
         int cx = loc.getBlockX(),
                 cy = loc.getBlockY(),
@@ -30,6 +31,9 @@ public class GeometryUtil {
                     double dist = (cx - x) * (cx - x) + (cz - z) * (cz - z) + (sphere ? (cy - y) * (cy - y) : 0);
                     if (dist < r * r && !(hollow && dist < (r - 1) * (r - 1))) {
                         Location l = new Location(loc.getWorld(), x, y, z);
+                        if (!includeAir && l.getBlock().getType() == Material.AIR) {
+                            continue;
+                        }
                         blocks.add(l);
                     }
                 }
