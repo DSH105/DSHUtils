@@ -21,6 +21,7 @@ public enum Particle {
     PORTAL("portal", 1f, 100),
 
     EXPLOSION("largeexplode", 0.1f, 1),
+    HUGE_EXPLOSION("hugeexplosion", 0.1f, 1),
     CLOUD("explode", 0.1f, 10),
     CRITICAL("crit", 0.1f, 100),
     MAGIC_CRITIAL("magicCrit", 0.1f, 100),
@@ -82,31 +83,31 @@ public enum Particle {
         ReflectionUtil.sendPacket(l, this.createPacket(this.particleName, l, new Vector(RANDOM.nextFloat(), RANDOM.nextFloat(), RANDOM.nextFloat()), this.defaultSpeed, this.particleAmount));
     }
 
-    public void sendTo(Location l, Vector v) throws Exception {
-        ReflectionUtil.sendPacket(l, this.createPacket(this.particleName, l, v, this.defaultSpeed, this.particleAmount));
+    public void sendTo(Location l, Vector v, float speed, int particleAmount) throws Exception {
+        ReflectionUtil.sendPacket(l, this.createPacket(this.particleName, l, v, speed, particleAmount));
     }
 
     public void sendToPlayer(Location l, Player p) throws Exception {
         ReflectionUtil.sendPacket(p, this.createPacket(this.particleName, l, new Vector(RANDOM.nextFloat(), RANDOM.nextFloat(), RANDOM.nextFloat()), this.defaultSpeed, this.particleAmount));
     }
 
-    public void sendToPlayer(Location l, Player p, Vector v) throws Exception {
-        ReflectionUtil.sendPacket(p, this.createPacket(this.particleName, l, v, this.defaultSpeed, this.particleAmount));
+    public void sendToPlayer(Location l, Player p, Vector v, float speed, int particleAmount) throws Exception {
+        ReflectionUtil.sendPacket(p, this.createPacket(this.particleName, l, v, speed, particleAmount));
     }
 
     public void sendDataParticle(Location l, int blockId, int blockMeta) throws Exception {
         ReflectionUtil.sendPacket(l, this.createPacket(this.particleName + "_" + blockId + "_" + blockMeta, l, new Vector(RANDOM.nextFloat(), RANDOM.nextFloat(), RANDOM.nextFloat()), this.defaultSpeed, this.particleAmount));
     }
 
-    public void sendDataParticle(Location l, Vector v, int blockId, int blockMeta) throws Exception {
-        ReflectionUtil.sendPacket(l, this.createPacket(this.particleName + "_" + blockId + "_" + blockMeta, l, v, this.defaultSpeed, this.particleAmount));
+    public void sendDataParticle(Location l, Vector v, float speed, int particleAmount, int blockId, int blockMeta) throws Exception {
+        ReflectionUtil.sendPacket(l, this.createPacket(this.particleName + "_" + blockId + "_" + blockMeta, l, v, speed, particleAmount));
     }
 
     public void sendDataParticleToPlayer(Location l, Player p, int blockId, int blockMeta) throws Exception {
         ReflectionUtil.sendPacket(p, this.createPacket(this.particleName + "_" + blockId + "_" + blockMeta, l, new Vector(RANDOM.nextFloat(), RANDOM.nextFloat(), RANDOM.nextFloat()), this.defaultSpeed, this.particleAmount));
     }
 
-    public void sendDataParticleToPlayer(Location l, Player p, Vector v, int blockId, int blockMeta) throws Exception {
-        ReflectionUtil.sendPacket(p, this.createPacket(this.particleName + "_" + blockId + "_" + blockMeta, l, v, this.defaultSpeed, this.particleAmount));
+    public void sendDataParticleToPlayer(Location l, Player p, Vector v, float speed, int particleAmount, int blockId, int blockMeta) throws Exception {
+        ReflectionUtil.sendPacket(p, this.createPacket(this.particleName + "_" + blockId + "_" + blockMeta, l, v, defaultSpeed, particleAmount));
     }
 }
