@@ -9,16 +9,24 @@ public class VersionIncompatibleCommand implements CommandExecutor {
     private String cmdLabel;
     private String pluginPrefix;
     private String msg;
+    private String perm;
+    private String permMsg;
 
-    public VersionIncompatibleCommand(String cmdLabel, String pluginPrefix, String msg) {
+    public VersionIncompatibleCommand(String cmdLabel, String pluginPrefix, String msg, String perm, String permMsg) {
         this.cmdLabel = cmdLabel;
         this.pluginPrefix = pluginPrefix;
         this.msg = msg;
+        this.perm = perm;
+        this.permMsg = permMsg;
     }
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        commandSender.sendMessage(this.pluginPrefix + " " + this.msg);
+        if (commandSender.hasPermission(this.perm)) {
+            commandSender.sendMessage(this.pluginPrefix + " " + this.msg);
+        } else {
+            commandSender.sendMessage(this.pluginPrefix + " " + this.permMsg);
+        }
         return true;
     }
 }
