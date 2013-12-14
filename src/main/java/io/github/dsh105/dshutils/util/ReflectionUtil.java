@@ -67,8 +67,8 @@ public class ReflectionUtil {
         getMethod(con.getClass(), "sendPacket").invoke(con, packet);
     }
 
-    public static void spawnFirework(World w, Location l, FireworkEffect fe) {
-        Firework fw = w.spawn(l, Firework.class);
+    public static void spawnFirework(Location l, FireworkEffect fe) {
+        Firework fw = l.getWorld().spawn(l, Firework.class);
         FireworkMeta fwm = fw.getFireworkMeta();
         fwm.clearEffects();
         fwm.addEffect(fe);
