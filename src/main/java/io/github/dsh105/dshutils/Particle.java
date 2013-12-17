@@ -39,7 +39,6 @@ public enum Particle {
     VOID("townaura", 1f, 100),
 
     BLOCK_BREAK("blockcrack", 0.1F, 100),
-    ICON_CRACK("blockdust", 0.1F, 100),
     BLOCK_DUST("blockdust", 0.1F, 100),
     ;
 
