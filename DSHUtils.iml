@@ -19,6 +19,7 @@
         <JAVADOC />
         <SOURCES>
           <root url="jar://$MODULE_DIR$/../CraftBukkit/target/craftbukkit.jar!/" />
+          <root url="jar://$MODULE_DIR$/../CraftBukkit/target/craftbukkit.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
