@@ -4,7 +4,7 @@ import org.bukkit.ChatColor;
 
 import java.util.Random;
 
-public class GeneralUtil {
+public class StringUtil {
 
     private static Random r;
 

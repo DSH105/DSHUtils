@@ -11,13 +11,13 @@ import java.util.List;
 public class GeometryUtil {
 
     public static float generateRandomFloat(float min, float max) {
-        float f = min + (GeneralUtil.r().nextFloat() * ((1 + max) - min));
-        return GeneralUtil.r().nextBoolean() ? f : -f;
+        float f = min + (StringUtil.r().nextFloat() * ((1 + max) - min));
+        return StringUtil.r().nextBoolean() ? f : -f;
     }
 
     public static float generateRandomFloat() {
-        float f = GeneralUtil.r().nextFloat();
-        return GeneralUtil.r().nextBoolean() ? f : -f;
+        float f = StringUtil.r().nextFloat();
+        return StringUtil.r().nextBoolean() ? f : -f;
     }
 
     public static List<Location> circle(Location loc, int r, int h, boolean hollow, boolean sphere, boolean includeAir) {
