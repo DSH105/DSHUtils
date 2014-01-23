@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Paginator {
 
-    private ArrayList<String> raw;
+    private ArrayList<String> raw = new ArrayList<String>();
     private int perPage;
 
     public Paginator(String[] raw, int perPage) {

@@ -11,7 +11,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <minecraft.version>1.7.2</minecraft.version>
-        <craftbukkit.version>R0.1</craftbukkit.version>
+        <craftbukkit.version>R0.3</craftbukkit.version>
         <cb_package>v1_7_R1</cb_package>
     </properties>
 
