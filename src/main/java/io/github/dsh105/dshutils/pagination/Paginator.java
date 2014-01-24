@@ -33,11 +33,11 @@ public class Paginator {
     }
 
     public int getIndex() {
-        return (int) (Math.ceil(this.raw.size() / this.perPage));
+        return (int) (Math.ceil(this.raw.size() / ((double) this.perPage)));
     }
 
     public double getDoubleIndex() {
-        return (Math.ceil(this.raw.size() / this.perPage));
+        return (Math.ceil(this.raw.size() / ((double) this.perPage)));
     }
 
     public String[] getPage(int pageNumber) {
