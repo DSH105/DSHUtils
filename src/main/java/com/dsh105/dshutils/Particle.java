@@ -1,6 +1,6 @@
-package io.github.dsh105.dshutils;
+package com.dsh105.dshutils;
 
-import io.github.dsh105.dshutils.util.ReflectionUtil;
+import com.dsh105.dshutils.util.ReflectionUtil;
 import net.minecraft.server.v1_7_R1.PacketPlayOutWorldParticles;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;

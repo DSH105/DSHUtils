@@ -1,4 +1,4 @@
-package io.github.dsh105.dshutils.pagination;
+package com.dsh105.dshutils.pagination;
 
 import java.util.ArrayList;
 

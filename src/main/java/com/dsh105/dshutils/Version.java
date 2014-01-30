@@ -1,6 +1,6 @@
-package io.github.dsh105.dshutils;
+package com.dsh105.dshutils;
 
-import io.github.dsh105.dshutils.logger.Logger;
+import com.dsh105.dshutils.logger.Logger;
 
 import java.io.File;
 import java.io.IOException;

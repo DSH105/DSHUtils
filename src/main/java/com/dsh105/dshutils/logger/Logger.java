@@ -1,4 +1,4 @@
-package io.github.dsh105.dshutils.logger;
+package com.dsh105.dshutils.logger;
 
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;

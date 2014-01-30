@@ -1,4 +1,4 @@
-package io.github.dsh105.dshutils.util;
+package com.dsh105.dshutils.util;
 
 
 public class EnumUtil {

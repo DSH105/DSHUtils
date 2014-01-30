@@ -1,6 +1,6 @@
-package io.github.dsh105.dshutils.config.options;
+package com.dsh105.dshutils.config.options;
 
-import io.github.dsh105.dshutils.config.YAMLConfig;
+import com.dsh105.dshutils.config.YAMLConfig;
 
 
 public abstract class Options {

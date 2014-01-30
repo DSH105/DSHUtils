@@ -4,7 +4,7 @@
  * This class provides the means to safely and easily update a plugin, or check to see if it is updated using dev.bukkit.org
  */
 
-package io.github.dsh105.dshutils;
+package com.dsh105.dshutils;
 
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;

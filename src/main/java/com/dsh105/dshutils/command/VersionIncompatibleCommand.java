@@ -1,4 +1,4 @@
-package io.github.dsh105.dshutils.command;
+package com.dsh105.dshutils.command;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

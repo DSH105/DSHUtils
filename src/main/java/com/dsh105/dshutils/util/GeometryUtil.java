@@ -1,4 +1,4 @@
-package io.github.dsh105.dshutils.util;
+package com.dsh105.dshutils.util;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
