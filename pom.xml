@@ -106,7 +106,7 @@
                             <relocations>
                                 <relocation>
                                     <pattern>org.json</pattern>
-                                    <shadedPattern>com.dsh105.dshutils.libs</shadedPattern>
+                                    <shadedPattern>io.github.dsh105.dshutils.libs</shadedPattern>
                                 </relocation>
                             </relocations>
                         </configuration>
