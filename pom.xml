@@ -98,18 +98,18 @@
                         </goals>
                         <configuration>
                             <minimizeJar>true</minimizeJar>
-                            <filters>
-                                <filter>
-                                    <artifact>org.json:json</artifact>
-                                    <excludes>
-                                        <exclude>org/json/simple/**</exclude>
-                                    </excludes>
-                                </filter>
-                            </filters>
+                            <artifactSet>
+                                <includes>
+                                    <include>org.json:json</include>
+                                </includes>
+                            </artifactSet>
                             <relocations>
                                 <relocation>
                                     <pattern>org.json</pattern>
                                     <shadedPattern>com.dsh105.dshutils.libs</shadedPattern>
+                                    <excludes>
+                                        <exclude>org.json.simple.*</exclude>
+                                    </excludes>
                                 </relocation>
                             </relocations>
                         </configuration>
