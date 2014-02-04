@@ -6,6 +6,7 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Random;
 
 public enum Particle {
@@ -78,35 +79,107 @@ public enum Particle {
                 defaultSpeed, particleAmount);
     }
 
-    public void sendTo(Location l) throws Exception {
-        ReflectionUtil.sendPacket(l, this.createPacket(this.particleName, l, new Vector(RANDOM.nextFloat(), RANDOM.nextFloat(), RANDOM.nextFloat()), this.defaultSpeed, this.particleAmount));
+    public void sendTo(Location l) {
+        try {
+            ReflectionUtil.sendPacket(l, this.createPacket(this.particleName, l, new Vector(RANDOM.nextFloat(), RANDOM.nextFloat(), RANDOM.nextFloat()), this.defaultSpeed, this.particleAmount));
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void sendTo(Location l, Vector v, float speed, int particleAmount) throws Exception {
-        ReflectionUtil.sendPacket(l, this.createPacket(this.particleName, l, v, speed, particleAmount));
+    public void sendTo(Location l, Vector v, float speed, int particleAmount) {
+        try {
+            ReflectionUtil.sendPacket(l, this.createPacket(this.particleName, l, v, speed, particleAmount));
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void sendToPlayer(Location l, Player p) throws Exception {
-        ReflectionUtil.sendPacket(p, this.createPacket(this.particleName, l, new Vector(RANDOM.nextFloat(), RANDOM.nextFloat(), RANDOM.nextFloat()), this.defaultSpeed, this.particleAmount));
+    public void sendToPlayer(Location l, Player p) {
+        try {
+            ReflectionUtil.sendPacket(p, this.createPacket(this.particleName, l, new Vector(RANDOM.nextFloat(), RANDOM.nextFloat(), RANDOM.nextFloat()), this.defaultSpeed, this.particleAmount));
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void sendToPlayer(Location l, Player p, Vector v, float speed, int particleAmount) throws Exception {
-        ReflectionUtil.sendPacket(p, this.createPacket(this.particleName, l, v, speed, particleAmount));
+    public void sendToPlayer(Location l, Player p, Vector v, float speed, int particleAmount) {
+        try {
+            ReflectionUtil.sendPacket(p, this.createPacket(this.particleName, l, v, speed, particleAmount));
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void sendDataParticle(Location l, int blockId, int blockMeta) throws Exception {
-        ReflectionUtil.sendPacket(l, this.createPacket(this.particleName + "_" + blockId + "_" + blockMeta, l, new Vector(RANDOM.nextFloat(), RANDOM.nextFloat(), RANDOM.nextFloat()), this.defaultSpeed, this.particleAmount));
+    public void sendDataParticle(Location l, int blockId, int blockMeta) {
+        try {
+            ReflectionUtil.sendPacket(l, this.createPacket(this.particleName + "_" + blockId + "_" + blockMeta, l, new Vector(RANDOM.nextFloat(), RANDOM.nextFloat(), RANDOM.nextFloat()), this.defaultSpeed, this.particleAmount));
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void sendDataParticle(Location l, Vector v, float speed, int particleAmount, int blockId, int blockMeta) throws Exception {
-        ReflectionUtil.sendPacket(l, this.createPacket(this.particleName + "_" + blockId + "_" + blockMeta, l, v, speed, particleAmount));
+    public void sendDataParticle(Location l, Vector v, float speed, int particleAmount, int blockId, int blockMeta) {
+        try {
+            ReflectionUtil.sendPacket(l, this.createPacket(this.particleName + "_" + blockId + "_" + blockMeta, l, v, speed, particleAmount));
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void sendDataParticleToPlayer(Location l, Player p, int blockId, int blockMeta) throws Exception {
-        ReflectionUtil.sendPacket(p, this.createPacket(this.particleName + "_" + blockId + "_" + blockMeta, l, new Vector(RANDOM.nextFloat(), RANDOM.nextFloat(), RANDOM.nextFloat()), this.defaultSpeed, this.particleAmount));
+    public void sendDataParticleToPlayer(Location l, Player p, int blockId, int blockMeta) {
+        try {
+            ReflectionUtil.sendPacket(p, this.createPacket(this.particleName + "_" + blockId + "_" + blockMeta, l, new Vector(RANDOM.nextFloat(), RANDOM.nextFloat(), RANDOM.nextFloat()), this.defaultSpeed, this.particleAmount));
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void sendDataParticleToPlayer(Location l, Player p, Vector v, float speed, int particleAmount, int blockId, int blockMeta) throws Exception {
-        ReflectionUtil.sendPacket(p, this.createPacket(this.particleName + "_" + blockId + "_" + blockMeta, l, v, defaultSpeed, particleAmount));
+    public void sendDataParticleToPlayer(Location l, Player p, Vector v, float speed, int particleAmount, int blockId, int blockMeta) {
+        try {
+            ReflectionUtil.sendPacket(p, this.createPacket(this.particleName + "_" + blockId + "_" + blockMeta, l, v, defaultSpeed, particleAmount));
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
     }
 }
