@@ -46,7 +46,7 @@ public class InventoryMenu implements InventoryHolder, Listener {
     public InventoryMenu showTo(Player viewer) {
         Inventory inv = this.getInventory();
         for (Map.Entry<Integer, MenuIcon> entry : this.getSlots().entrySet()) {
-            inv.setItem(entry.getKey(), entry.getValue().getIcon());
+            inv.setItem(entry.getKey(), entry.getValue().getIcon(viewer));
         }
         viewer.openInventory(inv);
         return this;

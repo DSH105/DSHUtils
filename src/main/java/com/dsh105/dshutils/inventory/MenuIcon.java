@@ -43,7 +43,7 @@ public class MenuIcon {
         return lore;
     }
 
-    public ItemStack getIcon() {
+    public ItemStack getIcon(Player viewer) {
         ItemStack i = new ItemStack(this.getMaterialId(), 1, (short) this.getMaterialData());
         ItemMeta meta = i.getItemMeta();
         meta.setDisplayName(this.getName());
