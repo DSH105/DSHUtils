@@ -48,7 +48,7 @@ public class VersionUtil {
     }
 
     public static String getServerVersion() {
-        String packageName = DSHPlugin.getInstance().getServer().getClass().getPackage().getName();
+        String packageName = DSHPlugin.getPluginInstance().getServer().getClass().getPackage().getName();
         String[] packageSplit = packageName.split("\\.");
         String version = packageSplit[packageSplit.length - 1];
         return version;

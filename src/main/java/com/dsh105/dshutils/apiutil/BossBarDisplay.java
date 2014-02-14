@@ -176,7 +176,7 @@ public class BossBarDisplay {
                 ReflectionUtil.sendPacket(player, destroyEntityPacket);
                 hasHealthBar.put(player.getName(), false);
             }
-        }.runTaskLater(DSHPlugin.getInstance(), 120L);
+        }.runTaskLater(DSHPlugin.getPluginInstance(), 120L);
     }
 
     public static void displayLoadingBar(final String text, final String completeText, final Player player, final int healthAdd, final long delay, final boolean loadUp) {
@@ -229,12 +229,12 @@ public class BossBarDisplay {
                             ReflectionUtil.sendPacket(player, destroyEntityPacket);
                             hasHealthBar.put(player.getName(), false);
                         }
-                    }.runTaskLater(DSHPlugin.getInstance(), 40L);
+                    }.runTaskLater(DSHPlugin.getPluginInstance(), 40L);
 
                     this.cancel();
                 }
             }
-        }.runTaskTimer(DSHPlugin.getInstance(), delay, delay);
+        }.runTaskTimer(DSHPlugin.getPluginInstance(), delay, delay);
     }
 
     public static void displayLoadingBar(final String text, final String completeText, final Player player, final int secondsDelay, final boolean loadUp) {
