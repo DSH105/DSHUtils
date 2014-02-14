@@ -1,5 +1,6 @@
-package com.dsh105.dshutils;
+package com.dsh105.dshutils.util;
 
+import com.dsh105.dshutils.DSHPlugin;
 import com.dsh105.dshutils.logger.Logger;
 
 import java.io.File;
@@ -8,7 +9,7 @@ import java.util.jar.Attributes;
 import java.util.jar.JarFile;
 import java.util.jar.Manifest;
 
-public class Version {
+public class VersionUtil {
 
     public static boolean b = false;
     private static String PLUGIN_VERSION;
@@ -18,7 +19,7 @@ public class Version {
 
     private static void updateVersions() {
         try {
-            String path = Version.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
+            String path = VersionUtil.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
             Attributes a = getManifest(path).getMainAttributes();
             if (a.getValue("Plugin-Version") != null) {
                 PLUGIN_VERSION = a.getValue("Plugin-Version");
@@ -44,7 +45,17 @@ public class Version {
         Manifest mf = new JarFile(jar).getManifest();
         jf.close();
         return mf;
+    }
 
+    public static String getServerVersion() {
+        String packageName = DSHPlugin.getInstance().getServer().getClass().getPackage().getName();
+        String[] packageSplit = packageName.split("\\.");
+        String version = packageSplit[packageSplit.length - 1];
+        return version;
+    }
+
+    public static boolean compareVersions() {
+        return getNMSPackage().equalsIgnoreCase(getServerVersion());
     }
 
     public static String getPluginVersion() {

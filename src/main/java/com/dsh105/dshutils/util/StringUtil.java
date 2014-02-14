@@ -56,57 +56,31 @@ public class StringUtil {
         }
     }
 
-    public static String replaceStringWithColours(String string) {
-        string = string.replace("&0", ChatColor.BLACK.toString());
-        string = string.replace("&1", ChatColor.DARK_BLUE.toString());
-        string = string.replace("&2", ChatColor.DARK_GREEN.toString());
-        string = string.replace("&3", ChatColor.DARK_AQUA.toString());
-        string = string.replace("&4", ChatColor.DARK_RED.toString());
-        string = string.replace("&5", ChatColor.DARK_PURPLE.toString());
-        string = string.replace("&6", ChatColor.GOLD.toString());
-        string = string.replace("&7", ChatColor.GRAY.toString());
-        string = string.replace("&8", ChatColor.DARK_GRAY.toString());
-        string = string.replace("&9", ChatColor.BLUE.toString());
-        string = string.replace("&a", ChatColor.GREEN.toString());
-        string = string.replace("&b", ChatColor.AQUA.toString());
-        string = string.replace("&c", ChatColor.RED.toString());
-        string = string.replace("&d", ChatColor.LIGHT_PURPLE.toString());
-        string = string.replace("&e", ChatColor.YELLOW.toString());
-        string = string.replace("&f", ChatColor.WHITE.toString());
+    // WHY...? ._.
+    public static String replaceColoursWithString(String whyAmIDoingThis) {
+        whyAmIDoingThis = whyAmIDoingThis.replace(ChatColor.BLACK + "", "&0");
+        whyAmIDoingThis = whyAmIDoingThis.replace(ChatColor.DARK_BLUE + "", "&1");
+        whyAmIDoingThis = whyAmIDoingThis.replace(ChatColor.DARK_GREEN + "", "&2");
+        whyAmIDoingThis = whyAmIDoingThis.replace(ChatColor.DARK_AQUA + "", "&3");
+        whyAmIDoingThis = whyAmIDoingThis.replace(ChatColor.DARK_RED + "", "&4");
+        whyAmIDoingThis = whyAmIDoingThis.replace(ChatColor.DARK_PURPLE + "", "&5");
+        whyAmIDoingThis = whyAmIDoingThis.replace(ChatColor.GOLD + "", "&6");
+        whyAmIDoingThis = whyAmIDoingThis.replace(ChatColor.GRAY + "", "&7");
+        whyAmIDoingThis = whyAmIDoingThis.replace(ChatColor.DARK_GRAY + "", "&8");
+        whyAmIDoingThis = whyAmIDoingThis.replace(ChatColor.BLUE + "", "&9");
+        whyAmIDoingThis = whyAmIDoingThis.replace(ChatColor.GREEN + "", "&a");
+        whyAmIDoingThis = whyAmIDoingThis.replace(ChatColor.AQUA + "", "&b");
+        whyAmIDoingThis = whyAmIDoingThis.replace(ChatColor.RED + "", "&c");
+        whyAmIDoingThis = whyAmIDoingThis.replace(ChatColor.LIGHT_PURPLE + "", "&d");
+        whyAmIDoingThis = whyAmIDoingThis.replace(ChatColor.YELLOW + "", "&e");
+        whyAmIDoingThis = whyAmIDoingThis.replace(ChatColor.WHITE + "", "&f");
 
-        string = string.replace("&k", ChatColor.MAGIC.toString());
-        string = string.replace("&l", ChatColor.BOLD.toString());
-        string = string.replace("&m", ChatColor.STRIKETHROUGH.toString());
-        string = string.replace("&n", ChatColor.UNDERLINE.toString());
-        string = string.replace("&o", ChatColor.ITALIC.toString());
-        string = string.replace("&r", ChatColor.RESET.toString());
-        return string;
-    }
-
-    public static String replaceColoursWithString(String s) {
-        s = s.replace(ChatColor.BLACK + "", "&0");
-        s = s.replace(ChatColor.DARK_BLUE + "", "&1");
-        s = s.replace(ChatColor.DARK_GREEN + "", "&2");
-        s = s.replace(ChatColor.DARK_AQUA + "", "&3");
-        s = s.replace(ChatColor.DARK_RED + "", "&4");
-        s = s.replace(ChatColor.DARK_PURPLE + "", "&5");
-        s = s.replace(ChatColor.GOLD + "", "&6");
-        s = s.replace(ChatColor.GRAY + "", "&7");
-        s = s.replace(ChatColor.DARK_GRAY + "", "&8");
-        s = s.replace(ChatColor.BLUE + "", "&9");
-        s = s.replace(ChatColor.GREEN + "", "&a");
-        s = s.replace(ChatColor.AQUA + "", "&b");
-        s = s.replace(ChatColor.RED + "", "&c");
-        s = s.replace(ChatColor.LIGHT_PURPLE + "", "&d");
-        s = s.replace(ChatColor.YELLOW + "", "&e");
-        s = s.replace(ChatColor.WHITE + "", "&f");
-
-        s = s.replace(ChatColor.MAGIC + "", "&k");
-        s = s.replace(ChatColor.BOLD + "", "&l");
-        s = s.replace(ChatColor.STRIKETHROUGH + "", "&m");
-        s = s.replace(ChatColor.UNDERLINE + "", "&n");
-        s = s.replace(ChatColor.ITALIC + "", "&o");
-        s = s.replace(ChatColor.RESET + "", "&r");
-        return s;
+        whyAmIDoingThis = whyAmIDoingThis.replace(ChatColor.MAGIC + "", "&k");
+        whyAmIDoingThis = whyAmIDoingThis.replace(ChatColor.BOLD + "", "&l");
+        whyAmIDoingThis = whyAmIDoingThis.replace(ChatColor.STRIKETHROUGH + "", "&m");
+        whyAmIDoingThis = whyAmIDoingThis.replace(ChatColor.UNDERLINE + "", "&n");
+        whyAmIDoingThis = whyAmIDoingThis.replace(ChatColor.ITALIC + "", "&o");
+        whyAmIDoingThis = whyAmIDoingThis.replace(ChatColor.RESET + "", "&r");
+        return whyAmIDoingThis;
     }
 }

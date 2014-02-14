@@ -1,5 +1,6 @@
 package com.dsh105.dshutils.inventory;
 
+import com.dsh105.dshutils.DSHPlugin;
 import com.dsh105.dshutils.util.IDGenerator;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.HumanEntity;
@@ -9,21 +10,20 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
-import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class InventoryMenu implements InventoryHolder, Listener {
 
-    private String id;
+    private long id;
     private int size;
     private String title;
     private HashMap<Integer, MenuIcon> slots = new HashMap<Integer, MenuIcon>();
 
-    public InventoryMenu(JavaPlugin pl, String title, int size) {
-        this.id = IDGenerator.nextId(pl);
-        pl.getServer().getPluginManager().registerEvents(this, pl);
+    public InventoryMenu(String title, int size) {
+        this.id = IDGenerator.nextId();
+        DSHPlugin.getPluginInstance().getServer().getPluginManager().registerEvents(this, DSHPlugin.getPluginInstance());
 
         if (size < 0) {
             size = 9;
@@ -34,7 +34,7 @@ public class InventoryMenu implements InventoryHolder, Listener {
         this.size = size;
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
@@ -81,7 +81,7 @@ public class InventoryMenu implements InventoryHolder, Listener {
             Inventory inv = player.getOpenInventory().getTopInventory();
             if (inv.getHolder() != null && inv.getHolder() instanceof InventoryMenu && event.getRawSlot() >= 0 && event.getRawSlot() < this.getSize()) {
                 InventoryMenu menu = (InventoryMenu) inv.getHolder();
-                if (menu.getId().equals(this.getId())) {
+                if (menu.getId() == this.getId()) {
                     event.setCancelled(true);
                     MenuIcon icon = slots.get(event.getSlot());
                     if (icon != null) {

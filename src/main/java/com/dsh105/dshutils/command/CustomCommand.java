@@ -1,8 +1,8 @@
 package com.dsh105.dshutils.command;
 
+import com.dsh105.dshutils.DSHPlugin;
 import org.apache.commons.lang.Validate;
 import org.bukkit.command.*;
-import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.List;
 
@@ -10,14 +10,9 @@ public class CustomCommand extends Command {
 
     private CommandExecutor executor;
     private TabCompleter completer;
-    private static JavaPlugin plugin;
 
     public CustomCommand(String name) {
         super(name);
-    }
-
-    public static void initiate(JavaPlugin pl) {
-        plugin = pl;
     }
 
     @Override
@@ -60,7 +55,7 @@ public class CustomCommand extends Command {
             for (String arg : args) {
                 message.append(arg).append(' ');
             }
-            message.deleteCharAt(message.length() - 1).append("' in plugin ").append(plugin.getDescription().getFullName());
+            message.deleteCharAt(message.length() - 1).append("' in plugin ").append(DSHPlugin.getInstance().getDescription().getFullName());
             throw new CommandException(message.toString(), ex);
         }
 

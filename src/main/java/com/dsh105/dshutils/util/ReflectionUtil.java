@@ -27,11 +27,16 @@ public class ReflectionUtil {
         return null;
     }
 
-    public static String getVersionString(JavaPlugin plugin) {
-        String packageName = plugin.getServer().getClass().getPackage().getName();
-        String[] packageSplit = packageName.split("\\.");
-        String version = packageSplit[packageSplit.length - 1];
-        return version;
+    public static Field getDeclaredField(Class<?> cl, String field_name) {
+        try {
+            Field field = cl.getDeclaredField(field_name);
+            return field;
+        } catch (SecurityException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public static void setValue(Object instance, String fieldName, Object value) throws Exception {
@@ -40,19 +45,13 @@ public class ReflectionUtil {
         field.set(instance, value);
     }
 
-    public static void sendPacket(Location l, Object packet)
-            throws SecurityException, NoSuchMethodException,
-            IllegalArgumentException, IllegalAccessException,
-            InvocationTargetException, NoSuchFieldException {
+    public static void sendPacket(Location l, Object packet) {
         sendPacket(l, packet, 20);
     }
 
-    public static void sendPacket(Location l, Object packet, int radius)
-            throws SecurityException, NoSuchMethodException,
-            IllegalArgumentException, IllegalAccessException,
-            InvocationTargetException, NoSuchFieldException {
+    public static void sendPacket(Location l, Object packet, int radius) {
         if (!GeometryUtil.getNearbyEntities(l, radius).isEmpty()) {
-            for (Entity e : GeometryUtil.getNearbyEntities(l, 20)) {
+            for (Entity e : GeometryUtil.getNearbyEntities(l, radius)) {
                 if (e != null && e instanceof Player) {
                     Player p = (Player) e;
                     sendPacket(p, packet);
@@ -61,10 +60,19 @@ public class ReflectionUtil {
         }
     }
 
-    public static void sendPacket(Player p, Object packet) throws InvocationTargetException, IllegalAccessException, NoSuchFieldException {
-        Object nmsPlayer = getMethod(p.getClass(), "getHandle").invoke(p);
-        Object con = nmsPlayer.getClass().getField("playerConnection").get(nmsPlayer);
-        getMethod(con.getClass(), "sendPacket").invoke(con, packet);
+    public static void sendPacket(Player p, Object packet)  {
+        Object nmsPlayer = null;
+        try {
+            nmsPlayer = getMethod(p.getClass(), "getHandle").invoke(p);
+            Object con = nmsPlayer.getClass().getField("playerConnection").get(nmsPlayer);
+            getMethod(con.getClass(), "sendPacket").invoke(con, packet);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void spawnFirework(Location l, FireworkEffect fe) {
