@@ -1,4 +1,4 @@
-package com.dsh105.dshutils.fanciful;
+package com.dsh105.dshutils.apiutil.fanciful;
 
 import org.bukkit.ChatColor;
 import org.json.JSONException;

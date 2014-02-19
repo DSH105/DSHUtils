@@ -1,4 +1,4 @@
-package com.dsh105.dshutils.fanciful;
+package com.dsh105.dshutils.apiutil.fanciful;
 
 import net.minecraft.server.v1_7_R1.ChatSerializer;
 import net.minecraft.server.v1_7_R1.PacketPlayOutChat;
