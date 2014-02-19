@@ -13,7 +13,8 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 
 /**
- * https://forums.bukkit.org/threads/158018/
+ * @author chasechocolate
+ *         https://forums.bukkit.org/threads/158018/
  */
 
 public class BossBarDisplay {
@@ -73,10 +74,8 @@ public class BossBarDisplay {
             k.set(mobPacket, (byte) 0);
 
         } catch (IllegalArgumentException e1) {
-            // TODO Auto-generated catch block
             e1.printStackTrace();
         } catch (IllegalAccessException e1) {
-            // TODO Auto-generated catch block
             e1.printStackTrace();
         }
 
