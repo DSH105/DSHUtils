@@ -10,6 +10,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <fanciful.version>0.1.2</fanciful.version>
         <minecraft.version>1.7.2</minecraft.version>
         <craftbukkit.version>R0.3</craftbukkit.version>
         <cb_package>v1_7_R1</cb_package>
@@ -40,12 +41,22 @@
             <artifactId>json</artifactId>
             <version>20090211</version>
         </dependency>
+        <dependency>
+            <groupId>mkremins</groupId>
+            <artifactId>fanciful</artifactId>
+            <version>${fanciful.version}</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <repositories>
         <repository>
             <id>bukkit-repo</id>
             <url>http://repo.bukkit.org/content/groups/public/</url>
+        </repository>
+        <repository>
+            <id>fanciful-repo</id>
+            <url>https://raw2.github.com/mkremins/fanciful/mvn-repo/</url>
         </repository>
     </repositories>
     <build>
@@ -97,10 +108,11 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
-                            <minimizeJar>true</minimizeJar>
+                            <minimizeJar>false</minimizeJar>
                             <artifactSet>
                                 <includes>
                                     <include>org.json:json</include>
+                                    <include>mkremins:fanciful</include>
                                 </includes>
                             </artifactSet>
                             <relocations>
@@ -110,6 +122,10 @@
                                     <excludes>
                                         <exclude>org.json.simple.*</exclude>
                                     </excludes>
+                                </relocation>
+                                <relocation>
+                                    <pattern>mkremins.fanciful</pattern>
+                                    <shadedPattern>com.dsh105.dshutils.libs</shadedPattern>
                                 </relocation>
                             </relocations>
                         </configuration>
