@@ -47,7 +47,9 @@ public class MenuIcon {
         ItemStack i = new ItemStack(this.getMaterialId(), 1, (short) this.getMaterialData());
         ItemMeta meta = i.getItemMeta();
         meta.setDisplayName(this.getName());
-        meta.setLore(Arrays.asList(this.getLore()));
+        if (this.lore != null && this.lore.length > 0) {
+            meta.setLore(Arrays.asList(this.getLore()));
+        }
         i.setItemMeta(meta);
         return i;
     }
