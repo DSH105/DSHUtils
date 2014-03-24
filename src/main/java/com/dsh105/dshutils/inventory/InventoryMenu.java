@@ -86,6 +86,7 @@ public class InventoryMenu implements InventoryHolder, Listener {
                     MenuIcon icon = slots.get(event.getSlot());
                     if (icon != null) {
                         icon.onClick(player);
+                        player.closeInventory();
                     }
                 }
             }
