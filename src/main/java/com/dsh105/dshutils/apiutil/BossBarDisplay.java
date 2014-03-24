@@ -2,9 +2,9 @@ package com.dsh105.dshutils.apiutil;
 
 import com.dsh105.dshutils.DSHPlugin;
 import com.dsh105.dshutils.util.ReflectionUtil;
-import net.minecraft.server.v1_7_R1.*;
+import net.minecraft.server.v1_7_R2.*;
 import org.bukkit.Location;
-import org.bukkit.craftbukkit.v1_7_R1.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_7_R2.entity.CraftPlayer;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
