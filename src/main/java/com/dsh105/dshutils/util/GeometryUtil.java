@@ -3,6 +3,7 @@ package com.dsh105.dshutils.util;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,5 +58,15 @@ public class GeometryUtil {
             return false;
         }
         return true;
+    }
+
+    public static List<Player> getNearbyPlayers(Location l, int range) {
+        List<Player> players = new ArrayList<Player>();
+        for (Entity e : getNearbyEntities(l, range)) {
+            if (e instanceof Player) {
+                players.add((Player) e);
+            }
+        }
+        return players;
     }
 }
