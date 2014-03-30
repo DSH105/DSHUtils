@@ -2,6 +2,7 @@ package com.dsh105.dshutils.util;
 
 import com.dsh105.dshutils.DSHPlugin;
 import com.dsh105.dshutils.logger.Logger;
+import org.bukkit.Bukkit;
 
 import java.io.File;
 import java.io.IOException;
@@ -48,10 +49,7 @@ public class VersionUtil {
     }
 
     public static String getServerVersion() {
-        String packageName = DSHPlugin.getPluginInstance().getServer().getClass().getPackage().getName();
-        String[] packageSplit = packageName.split("\\.");
-        String version = packageSplit[packageSplit.length - 1];
-        return version;
+        return Bukkit.getServer().getClass().getPackage().getName().replace(".", ",").split(",")[3];
     }
 
     public static boolean compareVersions() {
