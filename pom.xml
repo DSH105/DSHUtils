@@ -37,7 +37,7 @@
         </repository>
     </repositories>
     <build>
-        <defaultGoal>clean package install</defaultGoal>
+        <defaultGoal>clean package</defaultGoal>
         <finalName>${project.name}</finalName>
         <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
         <resources>
