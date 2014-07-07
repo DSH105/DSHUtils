@@ -15,13 +15,6 @@
         <cb_package>v1_7_R2</cb_package>
     </properties>
 
-    <distributionManagement>
-        <repository>
-            <id>hawk-repo</id>
-            <url>http://ci.hawkfalcon.com/plugin/repository/everything/</url>
-        </repository>
-    </distributionManagement>
-
     <dependencies>
         <dependency>
             <groupId>org.bukkit</groupId>
