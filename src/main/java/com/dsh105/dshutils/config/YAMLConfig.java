@@ -7,6 +7,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.Set;
 
@@ -23,7 +25,14 @@ public class YAMLConfig {
         this.manager = new YAMLConfigManager(plugin);
 
         this.file = configFile;
-        this.config = YamlConfiguration.loadConfiguration(configStream);
+        try {
+            this.config = YamlConfiguration.loadConfiguration(new InputStreamReader(configStream, "UTF-8"));
+        } catch (NoSuchMethodError ignored) {
+        } catch (UnsupportedEncodingException ignored) {
+        }
+        if (this.config == null) {
+            this.config = YamlConfiguration.loadConfiguration(configStream);
+        }
         this.plugin = plugin;
     }
 
