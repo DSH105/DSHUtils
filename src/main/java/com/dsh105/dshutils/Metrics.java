@@ -1,4 +1,21 @@
 /*
+ * This file is part of Commodus.
+ *
+ * Commodus is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Commodus is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Commodus.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/*
  * Copyright 2011-2013 Tyler Blair. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification, are
@@ -27,6 +44,7 @@
  */
 package com.dsh105.dshutils;
 
+import com.dsh105.dshutils.util.ServerUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -321,7 +339,7 @@ public class Metrics {
         boolean onlineMode = Bukkit.getServer().getOnlineMode(); // TRUE if online mode is enabled
         String pluginVersion = description.getVersion();
         String serverVersion = Bukkit.getVersion();
-        int playersOnline = Bukkit.getServer().getOnlinePlayers().length;
+        int playersOnline = ServerUtil.getOnlinePlayers().size();
 
         // END server software specific section -- all code below does not use any code outside of this class / Java
 
@@ -489,9 +507,11 @@ public class Metrics {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            if (gzos != null) try {
-                gzos.close();
-            } catch (IOException ignore) {
+            if (gzos != null) {
+                try {
+                    gzos.close();
+                } catch (IOException ignore) {
+                }
             }
         }
 
@@ -707,7 +727,8 @@ public class Metrics {
         }
 
         /**
-         * Get the current value for the plotted point. Since this function defers to an external function it may or may
+         * Get the current value for the plotted point. Since this function defers to an external function it may or
+         * may
          * not return immediately thus cannot be guaranteed to be thread friendly or safe. This function can be called
          * from any thread so care should be taken when accessing resources that need to be synchronized.
          *

@@ -1,7 +1,7 @@
 package com.dsh105.dshutils;
 
 import com.dsh105.dshutils.util.ReflectionUtil;
-import net.minecraft.server.v1_7_R2.PacketPlayOutWorldParticles;
+import net.minecraft.server.v1_7_R4.PacketPlayOutWorldParticles;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
