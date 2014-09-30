@@ -36,6 +36,10 @@ public class YAMLConfig {
         this.plugin = plugin;
     }
 
+    public FileConfiguration getConfig() {
+        return config;
+    }
+
     public Object get(String path) {
         return this.config.get(path);
     }
